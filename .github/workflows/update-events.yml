@@ -4,8 +4,12 @@ on:
   schedule:
     # Запускается каждый день в 6:00 утра по Москве (3:00 UTC)
     - cron: '0 3 * * *'
-  # Можно запускать вручную из вкладки Actions
+  # Можно запускать вручную
   workflow_dispatch:
+
+# ДОБАВЛЯЕМ ПРАВА НА ЗАПИСЬ
+permissions:
+  contents: write
 
 jobs:
   update-events:
