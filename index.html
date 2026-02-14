@@ -29,21 +29,35 @@
         .event-date { color: #2a5298; margin-bottom: 5px; }
         .event-place { color: #666; margin-bottom: 5px; }
         .event-desc { color: #444; margin-bottom: 15px; font-size: 14px; }
-        .links { display: flex; gap: 10px; flex-wrap: wrap; }
         .event-link { 
+            display: inline-block;
             padding: 8px 15px; 
             border-radius: 5px; 
             text-decoration: none; 
             font-size: 14px;
             color: white;
+            background: #2a5298;
         }
-        .main-link { background: #2a5298; }
-        .alt-link { background: #833AB4; }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
         .footer { text-align: center; padding: 20px; color: #666; font-size: 13px; }
     </style>
 </head>
 <body>
     <h1>🎭 Бесплатные события Казахстана</h1>
+    
+    <div class="warning">
+        ⚠️ Если официальный сайт не открывается — это особенность работы интернета в Казахстане. 
+        Нажмите «Подробнее» и «Перейти на сайт», чтобы посмотреть информацию.
+    </div>
+    
     <div id="events">Загрузка...</div>
     <div class="footer">Автоматическое обновление каждый день</div>
 
@@ -62,10 +76,7 @@
                             <div class="event-date">📅 ${event.date}</div>
                             <div class="event-place">📍 ${event.place}</div>
                             <div class="event-desc">${event.desc}</div>
-                            <div class="links">
-                                <a href="${event.source}" class="event-link main-link" target="_blank">🌐 Сайт</a>
-                                ${event.alt_source ? `<a href="${event.alt_source}" class="event-link alt-link" target="_blank">📱 Instagram</a>` : ''}
-                            </div>
+                            <a href="${event.source}" class="event-link" target="_blank" rel="noopener noreferrer">🌐 Подробнее на сайте</a>
                         </div>
                     `;
                 });
